@@ -21,7 +21,7 @@ class ObjectElementSeeder extends Seeder
             $newObjectEl = new ObjectElement();
             $newObjectEl->title = $faker->word;
             $newObjectEl->customer = $faker->name;
-            $newObjectEl->done = $faker->boolean;;
+            $newObjectEl->status = $faker->boolean;;
             $newObjectEl->save();
         }
     }

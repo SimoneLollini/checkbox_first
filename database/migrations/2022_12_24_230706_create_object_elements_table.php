@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('customer');
-            $table->boolean('done')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

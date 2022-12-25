@@ -15,7 +15,8 @@ class ObjectElementController extends Controller
      */
     public function index()
     {
-        //
+        $objectElements = ObjectElement::all();
+        return view('admin.object_element.index', compact('objectElements'));
     }
 
     /**
