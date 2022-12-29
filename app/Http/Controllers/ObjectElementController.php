@@ -26,7 +26,7 @@ class ObjectElementController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.object_element.create');
     }
 
     /**
@@ -37,7 +37,13 @@ class ObjectElementController extends Controller
      */
     public function store(StoreObjectElementRequest $request)
     {
-        //
+        $data = $request->all();
+        $newObjectEl = new ObjectElement();
+        $newObjectEl->title = $data['title'];
+        $newObjectEl->customer = $data['customer'];
+        $newObjectEl->status = false;
+        $newObjectEl->save();
+        return to_route('object_element.index');
     }
 
     /**
@@ -59,7 +65,7 @@ class ObjectElementController extends Controller
      */
     public function edit(ObjectElement $objectElement)
     {
-        //
+        return view('admin.object_element.edit', compact('objectElement'));
     }
 
     /**
@@ -71,7 +77,16 @@ class ObjectElementController extends Controller
      */
     public function update(UpdateObjectElementRequest $request, ObjectElement $objectElement)
     {
-        //
+        $data = $request->all();
+
+        if (array_key_exists("status", $data) and $data['status'] = 1) {
+            $data['status'] = true;
+        } else {
+            $data['status'] = false;
+        }
+
+        $objectElement->update($data);
+        return to_route('object_element.index');
     }
 
     /**
