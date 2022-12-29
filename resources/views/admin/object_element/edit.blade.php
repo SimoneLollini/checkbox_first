@@ -18,7 +18,7 @@
         </div>
 
         <div class="wrapper py-3">
-            <input type="checkbox" name="status" id="status">
+            <input type="checkbox" name="status" id="status" {{ $objectElement->status == true ? "checked" : "" }}>
             <label for="status">Status</label>
         </div>
 
