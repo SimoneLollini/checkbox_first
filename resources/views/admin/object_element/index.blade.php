@@ -5,7 +5,9 @@
     <a href="{{route('object_element.create')}}" class="btn btn-dark my-4">
         Nuovo
     </a>
-
+    @if(session('message'))
+    Oggetto {{session('message')}} con successo!
+    @endif
     <div class="table-responsive">
         <table class="table table-hover table-borderless table-dark align-middle">
             <thead>
@@ -27,10 +29,17 @@
                     <th class="bg-danger">Non fatto!</th>
                     @endif
                     </th>
-                    <th class="bg-light">
-                        <a href="{{route('object_element.edit', $ObjectEl)}} " class="btn btn-warning">
+                    <th class="bg-dark" class="d-flex">
+
+                        <a href="{{route('object_element.edit', $ObjectEl)}} " class="btn btn-warning btn-sm">
                             Edit
                         </a>
+                        <form action="{{route('object_element.destroy', $ObjectEl)}}" method="post" class="d-inline">
+                            @csrf
+                            @method ('DELETE')
+                            <input type="submit" value="Delete" class="btn btn-sm btn-danger">
+                        </form>
+
                     </th>
                 </tr>
                 @endforeach

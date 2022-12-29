@@ -97,6 +97,7 @@ class ObjectElementController extends Controller
      */
     public function destroy(ObjectElement $objectElement)
     {
-        //
+        $objectElement->delete();
+        return to_route('object_element.index')->with('message', 'eliminato');
     }
 }

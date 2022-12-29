@@ -16,9 +16,11 @@
 </head>
 
 <body>
+    <main class="vh-100 ">
 
-    @yield('content')
+        @yield('content')
 
+    </main>
 </body>
 
 </html>
