@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreObjectElementRequest;
 use App\Http\Requests\UpdateObjectElementRequest;
+use App\Http\Controllers\Controller;
 use App\Models\ObjectElement;
+use Illuminate\Support\Facades\DB;
+
+
+
 
 class ObjectElementController extends Controller
 {
@@ -54,7 +59,7 @@ class ObjectElementController extends Controller
      */
     public function show(ObjectElement $objectElement)
     {
-        //
+        return view('admin.object_element.show', compact('objectElement'));
     }
 
     /**
